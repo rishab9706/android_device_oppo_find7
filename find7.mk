@@ -42,6 +42,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxxhdpi
 
+# Gapps
+TARGET_GAPPS_ARCH := arm
+
 # NFC
 PRODUCT_PACKAGES += \
     android.hardware.nfc@1.0-impl \
