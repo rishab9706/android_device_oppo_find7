@@ -31,10 +31,6 @@ AUDIO_FEATURE_LOW_LATENCY_PRIMARY := true
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/oppo/find7/bluetooth
 
-# MUST NOT USE LOCAL_PATH
-BOARD_SEPOLICY_DIRS += \
-    device/oppo/find7/sepolicy
-
 # Camera
 USE_DEVICE_SPECIFIC_CAMERA := true
 
@@ -57,10 +53,15 @@ TARGET_LIBINIT_MSM8974_DEFINES_FILE := device/oppo/find7/init/init_find7.cpp
 TARGET_SYSTEM_PROP += device/oppo/find7/system.prop
 
 # Recovery
-TARGET_RECOVERY_FSTAB :=  device/oppo/find7/configs/fstab.find7.lvm
+TARGET_RECOVERY_FSTAB := device/oppo/find7/rootdir/etc/fstab.recovery
 
 # Shipping API
 PRODUCT_SHIPPING_API_LEVEL := 18
+
+# TWRP
+ifeq ($(WITH_TWRP),true)
+TARGET_RECOVERY_DEVICE_DIRS += device/oppo/find7/twrp
+endif
 
 # Inherit from the proprietary version
 include vendor/oppo/find7/BoardConfigVendor.mk
