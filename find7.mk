@@ -44,6 +44,8 @@ PRODUCT_AAPT_PREF_CONFIG := xxxhdpi
 
 # Gapps
 TARGET_GAPPS_ARCH := arm
+WITH_GAPPS := true
+IS_PHONE := true
 
 # NFC
 PRODUCT_PACKAGES += \

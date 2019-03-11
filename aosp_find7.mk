@@ -23,9 +23,6 @@ $(call inherit-product, device/oppo/find7/find7.mk)
 # Inherit some common Aex stuff.
 $(call inherit-product, vendor/aosp/common.mk)
 
-# Build with GApps
-$(call inherit-product, vendor/gapps/config.mk)
-
 PRODUCT_NAME := aosp_find7
 PRODUCT_DEVICE := find7
 PRODUCT_BRAND := OPPO
