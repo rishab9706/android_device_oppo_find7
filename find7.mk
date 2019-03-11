@@ -20,10 +20,10 @@ DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay-aex \
 
 # Ramdisk
-PRODUCT_PACKAGES += \
-    fstab.qcom \
-    init.qcom.rc \
-    init.qcom.usb.rc
+    $(LOCAL_PATH)/configs/init.find7.rc:root/init.qcom.rc \
+    $(LOCAL_PATH)/configs/init.find7.power.rc:root/init.qcom.power.rc \
+    $(LOCAL_PATH)/configs/fstab.find7.lvm:root/fstab.qcom \
+    $(LOCAL_PATH)/configs/init.recovery.find7.rc:root/init.recovery.qcom.rc \
 
 # Audio
 PRODUCT_COPY_FILES += \
@@ -33,6 +33,14 @@ PRODUCT_COPY_FILES += \
 
 # Boot animation
 TARGET_BOOT_ANIMATION_RES := 1080
+
+# LVM
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/lvm/lvm_init_recovery.sh:recovery/root/sbin/lvm_init_recovery.sh \
+    $(LOCAL_PATH)/lvm/busybox:root/sbin/busybox \
+    $(LOCAL_PATH)/lvm/lvm:root/sbin/lvm \
+    $(LOCAL_PATH)/lvm/lvm.conf:root/lvm/etc/lvm.conf \
+    $(LOCAL_PATH)/lvm/lvm.conf:recovery/root/lvm/etc/lvm.conf
 
 # Camera
 PRODUCT_PACKAGES += \
